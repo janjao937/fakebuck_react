@@ -1,10 +1,8 @@
+import Route from "./router/route"
 
 function App() {
-  return (
-    <h1 className="text-3xl font-bold underline text-orange-500">
-      Hello Banana!
-    </h1>
-  )
+  return <Route/>
+  
 }
 
 export default App
