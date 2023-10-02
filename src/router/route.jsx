@@ -5,14 +5,23 @@ import HomePage from "../page/HomePage";
 import FriendPage from "../page/FriendPage";
 import ProfilePage from "../page/ProfilePage";
 import { RouterProvider } from "react-router-dom";
+import RedirectIfAuthenticated from "../features/RedirectIfAuthenticated";
+import Authenticated from "../features/Authenticated";
 
 const router = createBrowserRouter([
  {   path:"/login",
-    element: <LoginPage/>
+    element: (
+    <RedirectIfAuthenticated>
+        <LoginPage/>
+    </RedirectIfAuthenticated>)
 },
 {
     path:"/",
-    element:<Layout/>,
+    element:(
+    <Authenticated> {/*for check if donhave access token on localStorage cant go childrenPage*/}
+        <Layout/>
+    </Authenticated>
+    ),
     children:[
         {path:"",element:<HomePage/>},
         {path:"friend",element:<FriendPage/>},
