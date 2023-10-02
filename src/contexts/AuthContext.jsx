@@ -4,6 +4,7 @@ import { createContext } from "react";
 import axios from "../config/axios";
 import { addAccessToken, getAccessToken } from "../utils/local-storage";
 import { useEffect } from "react";
+import { data } from "autoprefixer";
 
 export const AuthContext = createContext();
 
@@ -26,19 +27,41 @@ export default function AuthContextProvider({children}){
     },[]);
     
     const login=async(credential)=>{
-        try
-        {
+        // try
+        // {
             const res = await axios.post("/auth/login",credential);
             addAccessToken(res.data.accessToken);
             // console.log(res.data.user);
             setAuthUser(res.data.user);
-        }
-        catch(err)
-        {
-            console.log(err);
-        }
+        // }   //catch ที่ loginForm
+        // catch(err)
+        // {
+        //     console.log(err);
+        // }
+    };
+    const register =async(registerInputObj)=>{
+        /*{firstName:"",
+        lastName :"",
+        emailOrMobile:"",
+        password:"",
+        confirmPassword:""
+        }*/
+    //   try{
+        const res = await axios.post("/auth/register",registerInputObj);//ใส่ obj ได้เพราะตั้งชื่อตัวแปรในObjเหมือนbackend      
+        addAccessToken(res.data.accessToken)
+        setAuthUser(res.data.user);
+        //catch ที่ registerForm
+    //   }
+    //    catch(err){
+    //     console.log(err);
+    //    }
+ 
+   
     };
 
-    return <AuthContext.Provider value={{login,authUser,initialLoading}}>{children}</AuthContext.Provider>
+
+    return <AuthContext.Provider value={{register,login,authUser,initialLoading}}>{children}</AuthContext.Provider>
 }
+
+
 

@@ -10,8 +10,8 @@ const RegisterContainer=()=>{
         <div className="flex justify-center">
             <button onClick={()=>setIsOpen(true)} className="bg-orange-500 text-white rounded-md px-4 py-4 font-bold">create new account</button>
         
-            <Modol isOpen ={isOpen} onClose ={close} title="Sign up">
-                <RegisterForm onClose={close}/>
+            <Modol isOpen ={isOpen} onClose={close} title="Sign up">
+                <RegisterForm />
             </Modol>
         </div>
     )

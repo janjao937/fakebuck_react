@@ -1,6 +1,6 @@
 const Modol=({onClose,isOpen,title,children,maxWidth=27})=>{//children prop เป็นชื่อพิเศษ
 
-return(isOpen?
+return(isOpen&&
     <> 
         <div className="fixed inset-0 bg-white opacity-60 z-20"></div>
 
@@ -22,7 +22,7 @@ return(isOpen?
             </div>
         </div>
     </>
-    :""
+    
 );
 }
 
