@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createContext } from "react";
 
 import axios from "../config/axios";
-import { addAccessToken, getAccessToken } from "../utils/local-storage";
+import { addAccessToken, getAccessToken, removeAccessToken } from "../utils/local-storage";
 import { useEffect } from "react";
 import { data } from "autoprefixer";
 
@@ -58,9 +58,13 @@ export default function AuthContextProvider({children}){
  
    
     };
+    const logout =()=>{
+        removeAccessToken();
+        setAuthUser(null);
+    };
+    
 
-
-    return <AuthContext.Provider value={{register,login,authUser,initialLoading}}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{logout,register,login,authUser,initialLoading}}>{children}</AuthContext.Provider>
 }
 
 

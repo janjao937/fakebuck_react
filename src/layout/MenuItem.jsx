@@ -5,7 +5,7 @@ const MenuItem = ({currentPath,to,Icon})=>{
         <Link to ={to}>
             <div className="py-2 px-10 hover:bg-gray-200 rounded-lg">
                 {/* <Icon className="fill-black"/> */}
-                <Icon className={currentPath==to?`fill-black`:`fill-gray-600`}/>
+                <Icon className={currentPath==to?`fill-blue-600`:`fill-gray-600`}/>
             </div>
         
         </Link>
