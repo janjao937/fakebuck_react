@@ -36,7 +36,7 @@ const PictureForm = ({ children, title }) => {
           <FormButton  onClick={()=>{inputElement.current.click()}}>Edit</FormButton>
         </div>
       </div>
-      <div className="flex justify-center">{children(file?URL.createObjectURL(file):undefined)}</div>
+      <div className="flex justify-center">{children(file?URL.createObjectURL(file):undefined,()=>{inputElement.current.click()})}</div>
     </div>
   );
 
