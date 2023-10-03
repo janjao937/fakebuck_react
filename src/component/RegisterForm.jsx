@@ -1,7 +1,7 @@
 import { useState } from "react";
-import RegisterInput from "../features/RegisterInput";
+import RegisterInput from "../features/auths/RegisterInput";
 import Joi from "joi";
-import InputErrorMessage from "../features/InputErrorMessage";
+import InputErrorMessage from "../features/auths/InputErrorMessage";
 import { useAuth } from "../hooks/use-auth";
 import { toast } from 'react-toastify';
 

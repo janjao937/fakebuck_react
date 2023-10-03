@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Modol from "../component/Modol";
-import RegisterForm from "../component/RegisterForm";
+import Modol from "../../component/Modol";
+import RegisterForm from "../../component/RegisterForm";
 
 const RegisterContainer=()=>{
     const [isOpen,setIsOpen] = useState(false);

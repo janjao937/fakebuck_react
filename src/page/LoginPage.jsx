@@ -1,7 +1,7 @@
 
-import LoginContent from "../features/LoginContent";
-import LoginForm from "../features/LoginForm";
-import RegisterContainer from "../features/RegisterContainer";
+import LoginContent from "../features/auths/LoginContent";
+import LoginForm from "../features/auths/LoginForm";
+import RegisterContainer from "../features/auths/RegisterContainer";
 
 export default function LoginPage() {
  

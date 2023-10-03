@@ -5,8 +5,8 @@ import HomePage from "../page/HomePage";
 import FriendPage from "../page/FriendPage";
 import ProfilePage from "../page/ProfilePage";
 import { RouterProvider } from "react-router-dom";
-import RedirectIfAuthenticated from "../features/RedirectIfAuthenticated";
-import Authenticated from "../features/Authenticated";
+import RedirectIfAuthenticated from "../features/auths/RedirectIfAuthenticated";
+import Authenticated from "../features/auths/Authenticated";
 
 const router = createBrowserRouter([
  {   path:"/login",
