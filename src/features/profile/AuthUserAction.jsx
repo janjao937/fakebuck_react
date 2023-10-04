@@ -14,7 +14,7 @@ const AuthUserAction =()=>{
             <span className="font-semibold">Edit Profile</span>
             </ActionButton>
             <Modol onClose={()=>setIsOpen(false)} isOpen={isOpen} title="Edit profile" maxWidth ={44}>
-                <EditProfileFrom/>
+                <EditProfileFrom onSuccess={()=>setIsOpen(false)}/>
             </Modol>
         </div>
     )

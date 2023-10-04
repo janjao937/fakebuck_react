@@ -2,12 +2,11 @@ import { useRef } from "react";
 import FormButton from "./FormButton";
 import { useState } from "react";
 
-const PictureForm = ({ children, title }) => {
+const PictureForm = ({ children, title,initialSrc,onSave }) => {
     const inputElement = useRef(null);
     const [file,setFile] = useState(null);
     
-    file&&console.log(URL.createObjectURL(file));
-
+    // file&&console.log(URL.createObjectURL(file));
   return (
     <div>
         {/* <input onChange={(e)=>console.dir(e.target.files)} type="file" className="hidden" ref={inputElement} multiple/> multiple = เลือกได้หลายไฟล์*/}
@@ -26,7 +25,7 @@ const PictureForm = ({ children, title }) => {
 
         <div>
             {file&&<>
-                   <FormButton  onClick={()=>{}}>Save</FormButton>
+                   <FormButton  onClick={()=>onSave(file)}>Save</FormButton>
                    <FormButton  onClick={()=>{
                     inputElement.current.value=""
                     setFile(null)
@@ -36,7 +35,7 @@ const PictureForm = ({ children, title }) => {
           <FormButton  onClick={()=>{inputElement.current.click()}}>Edit</FormButton>
         </div>
       </div>
-      <div className="flex justify-center">{children(file?URL.createObjectURL(file):undefined,()=>{inputElement.current.click()})}</div>
+      <div className="flex justify-center">{children(file?URL.createObjectURL(file):initialSrc,()=>{inputElement.current.click()})}</div>
     </div>
   );
 
