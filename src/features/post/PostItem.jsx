@@ -7,7 +7,7 @@ const PostItem =({post})=>{
     <div className ="bg-white px-4 pt-3 border shadow rounded-lg">
         <PostHeader post={post}/>
         <PostContent message={post.message} image={post.image}/>
-        <PostFooter/>
+        <PostFooter post={post}/>
     </div>
     )
 }
