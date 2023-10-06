@@ -7,7 +7,7 @@ import Loading from "../../component/Loading";
 
 const PostForm =({onSuccess})=>{
     const {authUser} = useAuth();
-    const fileElement = useRef();
+    const fileElement = useRef(null);
     const [file,setFile] = useState(null);
     const [message,setMessage] = useState("");
     const [loading,setLoading] = useState(false);
@@ -20,7 +20,7 @@ const PostForm =({onSuccess})=>{
                 formData.append("message",message);
             }
             setLoading(true);
-            await axios.post("/post");
+            await axios.post("/post",formData);
             onSuccess();
         }
         catch(err){
@@ -38,7 +38,7 @@ const PostForm =({onSuccess})=>{
             <textarea value={message} onChange={e=>setMessage(e.target.value)} className="block w-full outline-none resize-none" rows="5" placeholder={`what's on your mind ${authUser.firstName}`}/>
             {file?(
             <div onClick={()=>fileElement.current.click()} className="cursor-pointer max-h-52 overflow-hidden">
-                <image src={URL.createObjectURL(file)}/>
+                <img src={URL.createObjectURL(file)} alt="post"/>
             </div>
             ): <SelectImageButton onClick={()=>fileElement.current.click()}/>}
            
@@ -56,9 +56,9 @@ const PostForm =({onSuccess})=>{
 }
 const CreateButton=({children})=>{
     return(
-        <div className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 w-full rounded-lg font-semibold">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 w-full rounded-lg font-semibold">
             {children}
-        </div>
+        </button>
     )
 }
 const SelectImageButton =({onClick})=>{
