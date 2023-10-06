@@ -16,9 +16,12 @@ const PostForm =({onSuccess})=>{
         try{
             e.preventDefault();
             const formData = new FormData();
-            if(file){
-                formData.append("message",message);
-            }
+            if (file) {
+                formData.append('image', file);
+              }
+              if (message) {
+                formData.append('message', message);
+              }
             setLoading(true);
             await axios.post("/post",formData);
             onSuccess();

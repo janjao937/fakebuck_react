@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 import { EllipsisIcon } from "../../icon/Icon";
 import Avatar from "../../component/Avatar";
+import formatTimeAgo from "../../utils/timeAgo";
 
-const PostHeader =()=>{
+const PostHeader =({post})=>{
     return (
         <div className="flex gap-3">
-            <Link to="profile/aaa"><Avatar/></Link>
+            <Link to={"profile/"+post.user.id}><Avatar src ={post.user.profileImage}/></Link>
           
             <div className="flex flex-col flex-1">
                 <Link to="profile/aaa" className="hover:underline text-sm font-semibold self-start">
-                    FirstName LastName
+                    {post.user.firstName} {post.user.lastName} 
                 </Link>
-                <small className="text-gray-500 text-xs">1m</small>
+                <small className="text-gray-500 text-xs">{formatTimeAgo(post.createAt)}</small>
             </div>
 
             <div className="relative">
